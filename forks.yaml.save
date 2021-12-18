@@ -1,0 +1,23 @@
+---
+
+- name: olympus
+  token_ticker: ohm
+  token_contract: '0x383518188c0c6d7730d91b2c03a03c837814a899'
+  staked_ticker: sohm
+  staked_contract: '0x04f2694c8fcee23e8fd0dfea1d4f5bb8c352111f'
+  staking_contract: '0xFd31c7d00Ca47653c6Ce64Af53c1571f9C36566a'
+  api: https://mainnet.infura.io/v3/40f886f8daa347ec901aa7e83d3300de
+- name: snowbank
+  token_ticker: sb
+  token_contract: '0x7d1232b90d3f809a54eeaeebc639c62df8a8942f'
+  staked_ticker: ssb
+  staked_contract: '0xe9eb40d52ce4744322204d4a29af63c30f0260a4'
+  staking_contract: '0x096BBfB78311227b805c968b070a81D358c13379'
+  api: https://api.avax.network/ext/bc/C/rpc
+- name: otterclam
+  token_ticker: clam
+  token_contract: '0xC250e9987A032ACAC293d838726C511E6E1C029d'
+  staked_ticker: sclam
+  staked_contract: '0xAAc144Dc08cE39Ed92182dd85ded60E5000C9e67'
+  staking_contract: '0xC8B0243F350AA5F8B979b228fAe522DAFC61221a'
+  api: https://polygonscan.com/

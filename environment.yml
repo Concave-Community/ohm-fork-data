@@ -1,0 +1,12 @@
+name: ntbk_env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8        #<= python version
+  - jupyter
+  - requests
+  - web3
+  - PyYAML
+  - pandas
