@@ -2,7 +2,7 @@
 name = "ohm-fork-data"
 version = "0.1.0"
 description = ""
-authors = Concave Community
+authors = "Concave Community"
 
 [tool.poetry.dependencies]
 python = "^3.8"
