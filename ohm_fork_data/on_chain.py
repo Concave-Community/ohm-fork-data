@@ -1,5 +1,6 @@
 import web3
 import requests
+from web3 import contract
 import yaml
 import csv
 import math
@@ -63,9 +64,6 @@ def save_block_data(fork, chain, block, endpoint, abi_dir, data_dir):
 
         fork_data.writerow(fork_row)
 
-    return
-
-    # TODO - finish off the bond data based on input from XD
     with open(f"{data_dir}/{fork.get('name')}bonds.csv", "a+") as f:
         bond_data = csv.writer(f)
         bond_rows = []
@@ -76,14 +74,23 @@ def save_block_data(fork, chain, block, endpoint, abi_dir, data_dir):
                 abi=open(f"{abi_dir}/{fork.get('bond_abi')}").read(),
             )
 
-            bond_row = (
-                [
-                    bond.get("name"),
-                    block,
-                    bond_contract.functions.bondPrice().call(block_identifier=block),
-                ]
-                + bond_contract.functions.adjustment().call(block_identifier=block)
-                + bond_contract.functions.terms().call(block_identifier=block)
-            )
+            try:
+                terms = bond_contract.functions.terms().call(block_identifier=block)
+
+                if fork == 'time':
+                    terms = [terms[0], terms[4], terms[1], terms[2], terms[3]]
+
+                bond_rows.append(
+                    [
+                        bond.get("name"),
+                        block,
+                        timestamp,
+                        bond_contract.functions.bondPrice().call(block_identifier=block),
+                    ]
+                    + bond_contract.functions.adjustment().call(block_identifier=block)
+                    + terms
+                )
+            except:
+                continue                
 
         bond_data.writerows(bond_rows)
