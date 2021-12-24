@@ -40,8 +40,8 @@ def save_block_data(fork, chain, block, endpoint, abi_dir, data_dir):
         epoch = staking_contract.functions.epoch().call(block_identifier=block)
 
         # time modified epoch code, this fixes it
-        if fork == "time":
-            epoch = [epoch[1], epoch[3], epoch[0], epoch[2]]
+        if fork.get('name') == "time":
+            epoch = [epoch[2], epoch[0], epoch[3], epoch[1]]
 
         fork_row = (
             [

@@ -9,7 +9,7 @@ chains:
       name: mim
     - address: '0xA184AE1A71EcAD20E822cB965b99c287590c4FFe'
       name: avax
-    end_block: 8527251
+    end_block: 8613651
     initial_index: 4.547419269
     initial_supply: 30000
     name: time
