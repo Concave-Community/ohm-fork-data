@@ -1,0 +1,5 @@
+- figure out how to deal with 10^9 vs. 10^18
+- deal with no file exists
+- change data to use fork name as directory to maintain seperation
+- test and finish treasury history build
+- work on bond data

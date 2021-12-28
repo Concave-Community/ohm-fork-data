@@ -5,10 +5,7 @@ import yaml
 import csv
 import math
 
-
-def get_market_price(fork, timestamp):
-    # TODO - find an API to get price based on timestamp
-    return 100
+from ohm_fork_data.get_price import get_price_by_ts
 
 
 def save_block_data(fork, chain, block, endpoint, abi_dir, data_dir):
@@ -19,9 +16,9 @@ def save_block_data(fork, chain, block, endpoint, abi_dir, data_dir):
         w3.middleware_onion.inject(web3.middleware.geth_poa_middleware, layer=0)
 
     timestamp = w3.eth.get_block(block).timestamp
-    market_price = get_market_price(fork.get('name'), timestamp)
+    market_price = get_price_by_ts(fork.get("name"), fork.get("name"), timestamp)
 
-    with open(f"{data_dir}/{fork.get('name')}.csv", "a+") as f:
+    with open(f"{data_dir}/{fork.get('name')}/{fork.get('name')}_fork.csv", "a+") as f:
         fork_data = csv.writer(f)
 
         token_contract = w3.eth.contract(
@@ -40,7 +37,7 @@ def save_block_data(fork, chain, block, endpoint, abi_dir, data_dir):
         epoch = staking_contract.functions.epoch().call(block_identifier=block)
 
         # time modified epoch code, this fixes it
-        if fork.get('name') == "time":
+        if fork.get("name") == "time":
             epoch = [epoch[2], epoch[0], epoch[3], epoch[1]]
 
         fork_row = (
@@ -56,7 +53,7 @@ def save_block_data(fork, chain, block, endpoint, abi_dir, data_dir):
                 / math.pow(10, 9),
                 staking_contract.functions.index().call(block_identifier=block)
                 / math.pow(10, 9),
-                market_price
+                market_price,
             ]
             + epoch[:-1]
             + [epoch[3] / math.pow(10, 9)]
@@ -64,7 +61,42 @@ def save_block_data(fork, chain, block, endpoint, abi_dir, data_dir):
 
         fork_data.writerow(fork_row)
 
-    with open(f"{data_dir}/{fork.get('name')}bonds.csv", "a+") as f:
+    with open(
+        f"{data_dir}/{fork.get('name')}/{fork.get('name')}_treasury.csv", "a+"
+    ) as f:
+        treasury_data = csv.writer(f)
+        treasury_rows = []
+
+        for asset in fork.get("treasury"):
+            asset_contract = w3.eth.contract(
+                web3.Web3.toChecksumAddress(asset.get("address")),
+                abi=open(f"{abi_dir}/{asset.get('abi')}").read(),
+            )
+
+            try:
+                market_price = get_price_by_ts(
+                    fork.get("name"), asset.get("name"), timestamp
+                )
+                asset_amount = asset_contract.functions.balanceOf(
+                    fork.get("treasury_address")
+                ).call(block_identifier=block) / math.pow(10, 18)
+            except:
+                continue
+
+            treasury_rows.append(
+                [
+                    asset.get("name"),
+                    block,
+                    timestamp,
+                    market_price * asset_amount,
+                    market_price,
+                    asset_amount,
+                ]
+            )
+
+        treasury_data.writerows(treasury_rows)
+
+    with open(f"{data_dir}/{fork.get('name')}/{fork.get('name')}_bonds.csv", "a+") as f:
         bond_data = csv.writer(f)
         bond_rows = []
 
@@ -77,7 +109,7 @@ def save_block_data(fork, chain, block, endpoint, abi_dir, data_dir):
             try:
                 terms = bond_contract.functions.terms().call(block_identifier=block)
 
-                if fork == 'time':
+                if fork == "time":
                     terms = [terms[0], terms[4], terms[1], terms[2], terms[3]]
 
                 bond_rows.append(
@@ -85,12 +117,14 @@ def save_block_data(fork, chain, block, endpoint, abi_dir, data_dir):
                         bond.get("name"),
                         block,
                         timestamp,
-                        bond_contract.functions.bondPrice().call(block_identifier=block),
+                        bond_contract.functions.bondPrice().call(
+                            block_identifier=block
+                        ),
                     ]
                     + bond_contract.functions.adjustment().call(block_identifier=block)
                     + terms
                 )
             except:
-                continue                
+                continue
 
         bond_data.writerows(bond_rows)
