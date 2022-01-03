@@ -1,0 +1,24 @@
+abi_dir: ./abis
+chains:
+- name: avalanche
+  endpoint: https://api.avax.network/ext/bc/C/rpc
+  forks:
+  - name: wonderland
+    staked_abi: memo.json
+    staked_address: '0x136acd46c134e8269052c62a67042d6bdedde3c9'
+    staking_abi: time_staking.json
+    staking_address: '0x4456B87Af11e87E329AB7d7C7A246ed1aC2168B9'
+    token_abi: time.json
+    token_address: '0xb54f16fb19478766a268f172c9480f8da1a7c9c3'
+- name: fantom
+  endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/fantom/mainnet
+  forks:
+  - name: hector
+    staked_abi: shec.json
+    staked_address: '0x75bdeF24285013387A47775828bEC90b91Ca9a5F'
+    staking_abi: hec_staking.json
+    staking_address: '0xD12930C8deeDafD788F437879cbA1Ad1E3908Cc5'
+    token_abi: hec.json
+    token_address: '0x5C4FDfc5233f935f20D2aDbA572F770c2E377Ab0'
+data_dir: ./data
+moralis_key: o2zp0MRmzIrQsvaGch0Tt4lRwlxiXJcbwHC6EeZaPmUmISmf2MYjhPfrS4v7a65F
