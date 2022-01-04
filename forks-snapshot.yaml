@@ -10,6 +10,20 @@ chains:
     staking_address: '0x4456B87Af11e87E329AB7d7C7A246ed1aC2168B9'
     token_abi: time.json
     token_address: '0xb54f16fb19478766a268f172c9480f8da1a7c9c3'
+  - name: SnowBank
+    staked_abi: SnowBank/ssb.json
+    staked_address: '0xe9eb40d52ce4744322204d4a29af63c30f0260a4'
+    staking_abi: SnowBank/staking.json
+    staking_address: '0x85784d5e2CCae89Bcb39EbF0ac6Cdc93d42d99AD'
+    token_abi: SnowBank/sb.json
+    token_address: '0x7d1232b90d3f809a54eeaeebc639c62df8a8942f'
+  - name: Maximizer
+    staked_abi: Maximizer/smaxi.json
+    staked_address: '0xEcE4D1b3C2020A312Ec41A7271608326894076b4'
+    staking_abi: Maximizer/staking.json
+    staking_address: '0x6d7AD602Ec2EFdF4B7d34A9A53f92F06d27b82B1'
+    token_abi: Maximizer/maxi.json
+    token_address: '0x7C08413cbf02202a1c13643dB173f2694e0F73f0'
   - name: fortress
     staked_abi: sfort.json
     staked_address: '0x6b8fb769d1957f2c29abc9d1beb95851cce775d8'
@@ -64,6 +78,13 @@ chains:
     staking_address: '0x3818eff63418e0a0BA3980ABA5fF388b029b6d90'
     token_abi: lobi.json
     token_address: '0xdec41db0c33f3f6f3cb615449c311ba22d418a8d'
+  - name: olympus
+    staked_abi: olympus/sohm.json
+    staked_address: '0x04f2694c8fcee23e8fd0dfea1d4f5bb8c352111f'
+    staking_abi: olympus/staking.json
+    staking_address: '0xfd31c7d00ca47653c6ce64af53c1571f9c36566a'
+    token_abi: olympus/ohm.json
+    token_address: '0x383518188c0c6d7730d91b2c03a03c837814a899'
 - name: arbitrum
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/arbitrum/mainnet
   forks:
