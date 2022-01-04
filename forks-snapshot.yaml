@@ -10,6 +10,13 @@ chains:
     staking_address: '0x4456B87Af11e87E329AB7d7C7A246ed1aC2168B9'
     token_abi: time.json
     token_address: '0xb54f16fb19478766a268f172c9480f8da1a7c9c3'
+  - name: fortress
+    staked_abi: sfort.json
+    staked_address: '0x6b8fb769d1957f2c29abc9d1beb95851cce775d8'
+    staking_abi: fort_staking.json
+    staking_address: '0x4D8ba74820e2d6EaD2Ea154586CB7dfbA8A691aa'
+    token_abi: fort.json
+    token_address: '0xf6d46849db378ae01d93732585bec2c4480d1fd5'
 - name: fantom
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/fantom/mainnet
   forks:
@@ -50,6 +57,15 @@ chains:
     staking_address: '0x3818eff63418e0a0BA3980ABA5fF388b029b6d90'
     token_abi: lobi.json
     token_address: '0xdec41db0c33f3f6f3cb615449c311ba22d418a8d'
-  endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/eth/mainnet/archive
+- name: arbitrum
+  endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/arbitrum/mainnet
+  forks:
+  - name: umami
+    staked_abi: sumami.json
+    staked_address: '0xe6d557d416ff5640235119369c7e26AA18a906D7'
+    staking_abi: umami_staking.json
+    staking_address: '0xc9ecFeF2fac1E38b951B8C5f59294a8366Dfbd81'
+    token_abi: umami.json
+    token_address: '0x1622bF67e6e5747b81866fE0b85178a93C7F86e3'
 data_dir: ./data
 moralis_key: o2zp0MRmzIrQsvaGch0Tt4lRwlxiXJcbwHC6EeZaPmUmISmf2MYjhPfrS4v7a65F
