@@ -10,6 +10,13 @@ chains:
     staking_address: '0x4456B87Af11e87E329AB7d7C7A246ed1aC2168B9'
     token_abi: wonderland/time.json
     token_address: '0xb54f16fb19478766a268f172c9480f8da1a7c9c3'
+  - name: papa-dao
+    staked_abi: papa-dao/spapa.json
+    staked_address: '0xDd8E1245F8B285672111C9e4051504D654f4d43A'
+    staking_abi: papa-dao/papa_staking.json
+    staking_address: '0x3875AC1F19E05813000F02414b3141DC3Ff991B6'
+    token_abi: papa-dao/papa.json
+    token_address: '0x70b33ebC5544C12691d055b49762D0F8365d99Fe'
   - name: snowbank
     staked_abi: snowbank/ssb.json
     staked_address: '0xe9eb40d52ce4744322204d4a29af63c30f0260a4'
@@ -58,6 +65,13 @@ chains:
     staking_address: '0xC8B0243F350AA5F8B979b228fAe522DAFC61221a'
     token_abi: otterclam/clam.json
     token_address: '0xC250e9987A032ACAC293d838726C511E6E1C029d'
+  - name: klima-dao
+    staked_abi: klima-dao/sklima.json
+    staked_address: '0xb0C22d8D350C67420f06F48936654f567C73E8C8'
+    staking_abi: klima-dao/klima_staking.json
+    staking_address: '0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d'
+    token_abi: klima-dao/klima.json
+    token_address: '0x4e78011Ce80ee02d2c3e649Fb657E45898257815'
 - name: bsc
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/bsc/mainnet/archive
   forks:
@@ -95,5 +109,15 @@ chains:
     staking_address: '0xc9ecFeF2fac1E38b951B8C5f59294a8366Dfbd81'
     token_abi: umami-finance/umami.json
     token_address: '0x1622bF67e6e5747b81866fE0b85178a93C7F86e3'
+- name: movr
+  endpoint: https://moonriver.api.onfinality.io/public
+  forks:
+  - name: rome
+    staked_abi: rome/srome.json
+    staked_address: '0x89f52002e544585b42f8c7cf557609ca4c8ce12a'
+    staking_abi: rome/rome_staking.json
+    staking_address: '0x6f7D019502e17F1ef24AC67a260c65Dd23b759f1'
+    token_abi: rome/rome.json
+    token_address: '0x4a436073552044D5f2f49B176853ad3Ad473d9d6'
 data_dir: ./data
 moralis_key: o2zp0MRmzIrQsvaGch0Tt4lRwlxiXJcbwHC6EeZaPmUmISmf2MYjhPfrS4v7a65F
