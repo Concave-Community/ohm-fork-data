@@ -17,6 +17,13 @@ chains:
     staking_address: '0x85784d5e2CCae89Bcb39EbF0ac6Cdc93d42d99AD'
     token_abi: SnowBank/sb.json
     token_address: '0x7d1232b90d3f809a54eeaeebc639c62df8a8942f'
+  - name: Maximizer
+    staked_abi: Maximizer/smaxi.json
+    staked_address: '0xEcE4D1b3C2020A312Ec41A7271608326894076b4'
+    staking_abi: Maximizer/staking.json
+    staking_address: '0x6d7AD602Ec2EFdF4B7d34A9A53f92F06d27b82B1'
+    token_abi: Maximizer/maxi.json
+    token_address: '0x7C08413cbf02202a1c13643dB173f2694e0F73f0'
 - name: fantom
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/fantom/mainnet
   forks:
