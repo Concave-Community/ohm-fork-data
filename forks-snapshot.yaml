@@ -24,12 +24,12 @@ chains:
     staking_address: '0x6d7AD602Ec2EFdF4B7d34A9A53f92F06d27b82B1'
     token_abi: maximizer/maxi.json
     token_address: '0x7C08413cbf02202a1c13643dB173f2694e0F73f0'
-  - name: fortress
-    staked_abi: fortress/sfort.json
+  - name: fortressdao
+    staked_abi: fortressdao/sfort.json
     staked_address: '0x6b8fb769d1957f2c29abc9d1beb95851cce775d8'
-    staking_abi: fortress/fort_staking.json
+    staking_abi: fortressdao/fort_staking.json
     staking_address: '0x4D8ba74820e2d6EaD2Ea154586CB7dfbA8A691aa'
-    token_abi: fortress/fort.json
+    token_abi: fortressdao/fort.json
     token_address: '0xf6d46849db378ae01d93732585bec2c4480d1fd5'
   - name: life-dao
     staked_abi: life-dao/slf.json
