@@ -41,7 +41,6 @@ chains:
     token_abi: jade.json
     token_address: '0x7ad7242A99F21aa543F9650A56D141C57e4F6081'
 - name: eth
-  endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/eth/mainnet/archive
   forks:
   - name: lobi
     staked_abi: slobi.json
@@ -51,5 +50,18 @@ chains:
     token_abi: lobi.json
     token_address: '0xdec41db0c33f3f6f3cb615449c311ba22d418a8d'
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/eth/mainnet/archive
+  - name: olympus
+#    the staked_abi is copied from olympus's repo, abis/sohm.json
+    staked_abi: olympus/sohm.json
+    #    olympus's repo README sOHM address
+    staked_address: '0x31932e6e45012476ba3a3a4953cba62aee77fbbe'
+#    this is is compiled the contract sol file: Staking.sol in remix.ethereum.org, then copy the abi to here.
+    staking_abi: olympus/staking.json
+    #    olympus's repo README OlympusStaking address
+    staking_address: '0xfd31c7d00ca47653c6ce64af53c1571f9c36566a'
+#    the staked_abi is copied from olympus's repo, abis/ohm.json
+    token_abi: olympus/ohm.json
+    #    olympus's repo OHM address
+    token_address: '0x383518188c0c6d7730d91b2c03a03c837814a899'
 data_dir: ./data
 moralis_key: o2zp0MRmzIrQsvaGch0Tt4lRwlxiXJcbwHC6EeZaPmUmISmf2MYjhPfrS4v7a65F
