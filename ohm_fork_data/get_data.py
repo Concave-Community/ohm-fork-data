@@ -30,7 +30,9 @@ for chain in config.get("chains"):
 
         while end_block <= current_block:
 
-            save_block_data(fork, chain_name, end_block, endpoint, abi_dir, data_dir, moralis_key)
+            save_block_data(
+                fork, chain_name, end_block, endpoint, abi_dir, data_dir, moralis_key
+            )
             fork["end_block"] = end_block
             end_block = int(step + end_block)
 

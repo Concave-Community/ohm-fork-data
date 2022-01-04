@@ -47,13 +47,20 @@ def save_block_data(fork, chain, block, endpoint, abi_dir, data_dir, moralis_key
         w3.middleware_onion.inject(web3.middleware.geth_poa_middleware, layer=0)
 
     timestamp = w3.eth.get_block(block).timestamp
-    market_price = moralis.get_token_price(fork.get("token_address"), chain, block).get('usdPrice')
+    market_price = moralis.get_token_price(fork.get("token_address"), chain, block).get(
+        "usdPrice"
+    )
 
-    save_staking_data(w3, fork, chain, block, timestamp, market_price, data_dir, abi_dir)
+    save_staking_data(
+        w3, fork, chain, block, timestamp, market_price, data_dir, abi_dir
+    )
     save_bond_data(w3, fork, block, timestamp, data_dir, abi_dir)
     save_treasury_data(w3, fork, block, timestamp, data_dir, moralis)
 
-def save_staking_data(w3, fork, chain, block, timestamp, market_price, data_dir, abi_dir):
+
+def save_staking_data(
+    w3, fork, chain, block, timestamp, market_price, data_dir, abi_dir
+):
 
     # Staking Collection
     if ospath.exists(f"{data_dir}/{fork.get('name')}/{fork.get('name')}_fork.csv"):
@@ -79,7 +86,7 @@ def save_staking_data(w3, fork, chain, block, timestamp, market_price, data_dir,
     epoch = staking_contract.functions.epoch().call(block_identifier=block)
 
     # time modified epoch code, this fixes it
-    if fork.get("name") == "time":
+    if fork.get("name") == "wonderland":
         epoch = [epoch[2], epoch[0], epoch[3], epoch[1]]
 
     fork_row_df = pd.DataFrame(
@@ -111,6 +118,7 @@ def save_staking_data(w3, fork, chain, block, timestamp, market_price, data_dir,
 
     return True
 
+
 def save_treasury_data(w3, fork, block, timestamp, data_dir, moralis):
 
     if ospath.exists(f"{data_dir}/{fork.get('name')}/{fork.get('name')}_treasury.csv"):
@@ -123,21 +131,27 @@ def save_treasury_data(w3, fork, block, timestamp, data_dir, moralis):
     treasury = {}
 
     for asset in fork.get("treasury_addresses"):
-        treasury_row = moralis.get_total_token_assets(asset.get("address"), [asset.get("chain")])
+        treasury_row = moralis.get_total_token_assets(
+            asset.get("address"), [asset.get("chain")]
+        )
 
         for row in treasury_row:
-            if treasury.get(row['symbol'], None):
-                treasury[row['symbol']]['quantity'] += row['quantity']
-                treasury[row['symbol']]['value'] += row['holdings_value_usd']
+            if treasury.get(row["symbol"], None):
+                treasury[row["symbol"]]["quantity"] += row["quantity"]
+                treasury[row["symbol"]]["value"] += row["holdings_value_usd"]
             else:
-                treasury[row['symbol']] = {
-                    'quantity': row['quantity'],
-                    'value': row['holdings_value_usd']
+                treasury[row["symbol"]] = {
+                    "quantity": row["quantity"],
+                    "value": row["holdings_value_usd"],
                 }
 
-    treasury_rows = [[k, block, timestamp, v['quantity'], v['value']] for k, v in treasury.items()]
+    treasury_rows = [
+        [k, block, timestamp, v["quantity"], v["value"]] for k, v in treasury.items()
+    ]
 
-    treasury_data_df = treasury_data_df.append(pd.DataFrame(treasury_rows, columns=TREASURY_COLUMNS))
+    treasury_data_df = treasury_data_df.append(
+        pd.DataFrame(treasury_rows, columns=TREASURY_COLUMNS)
+    )
     treasury_data_df.to_csv(
         f"{data_dir}/{fork.get('name')}/{fork.get('name')}_treasury.csv", index=False
     )
@@ -181,7 +195,9 @@ def save_bond_data(w3, fork, block, timestamp, data_dir, abi_dir):
         except:
             continue
 
-        bond_data_df = bond_data_df.append(pd.DataFrame(bond_rows, columns=BOND_COLUMNS))
+        bond_data_df = bond_data_df.append(
+            pd.DataFrame(bond_rows, columns=BOND_COLUMNS)
+        )
         bond_data_df.to_csv(
             f"{data_dir}/{fork.get('name')}/{fork.get('name')}_bonds.csv", index=False
         )
