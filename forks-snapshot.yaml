@@ -41,12 +41,12 @@ chains:
 - name: fantom
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/fantom/mainnet
   forks:
-  - name: hector
-    staked_abi: hector/shec.json
+  - name: hector-dao
+    staked_abi: hector-dao/shec.json
     staked_address: '0x75bdeF24285013387A47775828bEC90b91Ca9a5F'
-    staking_abi: hector/hec_staking.json
+    staking_abi: hector-dao/hec_staking.json
     staking_address: '0xD12930C8deeDafD788F437879cbA1Ad1E3908Cc5'
-    token_abi: hector/hec.json
+    token_abi: hector-dao/hec.json
     token_address: '0x5C4FDfc5233f935f20D2aDbA572F770c2E377Ab0'
 - name: polygon
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/polygon/mainnet/archive
@@ -61,39 +61,39 @@ chains:
 - name: bsc
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/bsc/mainnet/archive
   forks:
-  - name: jade
-    staked_abi: jade/sjade.json
+  - name: jade-protocol
+    staked_abi: jade-protocol/sjade.json
     staked_address: '0x94CEA04C51E7d3EC0a4A97Ac0C3B3c9254c2aD41'
-    staking_abi: jade/jade_staking.json
+    staking_abi: jade-protocol/jade_staking.json
     staking_address: '0x097d72e1D9bbb8d0263477f9b20bEBF66f243AF4'
-    token_abi: jade/jade.json
+    token_abi: jade-protocol/jade.json
     token_address: '0x7ad7242A99F21aa543F9650A56D141C57e4F6081'
 - name: eth
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/eth/mainnet/archive
   forks:
-  - name: lobi
-    staked_abi: lobi/slobi.json
+  - name: lobis
+    staked_abi: lobis/slobi.json
     staked_address: '0x8Ab17e2cd4F894F8641A31f99F673a5762F53c8e'
-    staking_abi: lobi/lobi_staking.json
+    staking_abi: lobis/lobi_staking.json
     staking_address: '0x3818eff63418e0a0BA3980ABA5fF388b029b6d90'
-    token_abi: lobi/lobi.json
+    token_abi: lobis/lobi.json
     token_address: '0xdec41db0c33f3f6f3cb615449c311ba22d418a8d'
   - name: olympus
     staked_abi: olympus/sohm.json
-    staked_address: '0x04f2694c8fcee23e8fd0dfea1d4f5bb8c352111f'
+    staked_address: '0x04906695D6D12CF5459975d7C3C03356E4Ccd460'
     staking_abi: olympus/ohm_staking.json
-    staking_address: '0xfd31c7d00ca47653c6ce64af53c1571f9c36566a'
+    staking_address: '0xFd31c7d00Ca47653c6Ce64Af53c1571f9C36566a'
     token_abi: olympus/ohm.json
-    token_address: '0x383518188c0c6d7730d91b2c03a03c837814a899'
+    token_address: '0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5'
 - name: arbitrum
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/arbitrum/mainnet
   forks:
-  - name: umami
-    staked_abi: umami/sumami.json
+  - name: umami-finance
+    staked_abi: umami-finance/sumami.json
     staked_address: '0xe6d557d416ff5640235119369c7e26AA18a906D7'
-    staking_abi: umami/umami_staking.json
+    staking_abi: umami-finance/umami_staking.json
     staking_address: '0xc9ecFeF2fac1E38b951B8C5f59294a8366Dfbd81'
-    token_abi: umami/umami.json
+    token_abi: umami-finance/umami.json
     token_address: '0x1622bF67e6e5747b81866fE0b85178a93C7F86e3'
 data_dir: ./data
 moralis_key: o2zp0MRmzIrQsvaGch0Tt4lRwlxiXJcbwHC6EeZaPmUmISmf2MYjhPfrS4v7a65F

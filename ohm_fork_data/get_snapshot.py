@@ -2,7 +2,7 @@ import web3
 import yaml
 import csv
 import math
-from ohm_fork_data.moralis import MoralisPy
+import requests
 
 SNAPSHOT_COLUMNS = [
     "name",
@@ -17,13 +17,11 @@ SNAPSHOT_COLUMNS = [
     "staking_ratio"
 ]
 
-wonderland_clones = ["wonderland", "umami", "fortress", "life-dao", "snowbank", "maximizer"]
+wonderland_clones = ["wonderland", "umami-finance", "fortress", "life-dao", "snowbank", "maximizer"]
 
 
 def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis_key):
     w3 = web3.Web3(web3.Web3.HTTPProvider(endpoint))
-    moralis = MoralisPy()
-    moralis.set_api_key(moralis_key)
 
     if chain == "avalanche":
         w3.middleware_onion.inject(web3.middleware.geth_poa_middleware, layer=0)
@@ -52,7 +50,8 @@ def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis
     staking_rebase = staking_reward / staked_supply
     
     try:
-        market_price = moralis.get_token_price(fork.get("token_address"), chain).get("usdPrice")
+        url = f"https://api.coingecko.com/api/v3/simple/price?ids={fork.get('name')}&vs_currencies=usd"
+        market_price = requests.get(url).json()[fork.get('name')]['usd']
     except AttributeError:
         market_price = 0.0
 
