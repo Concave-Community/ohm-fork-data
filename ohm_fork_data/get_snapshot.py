@@ -17,7 +17,7 @@ SNAPSHOT_COLUMNS = [
     "staking_ratio"
 ]
 
-wonderland_clones = ["wonderland", "umami", "fortress", "life-dao"]
+wonderland_clones = ["wonderland", "umami", "fortress", "life-dao", "snowbank", "maximizer"]
 
 
 def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis_key):

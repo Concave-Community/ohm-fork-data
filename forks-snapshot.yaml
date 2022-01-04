@@ -4,84 +4,84 @@ chains:
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/avalanche/mainnet
   forks:
   - name: wonderland
-    staked_abi: memo.json
+    staked_abi: wonderland/memo.json
     staked_address: '0x136acd46c134e8269052c62a67042d6bdedde3c9'
-    staking_abi: time_staking.json
+    staking_abi: wonderland/time_staking.json
     staking_address: '0x4456B87Af11e87E329AB7d7C7A246ed1aC2168B9'
-    token_abi: time.json
+    token_abi: wonderland/time.json
     token_address: '0xb54f16fb19478766a268f172c9480f8da1a7c9c3'
-  - name: SnowBank
-    staked_abi: SnowBank/ssb.json
+  - name: snowbank
+    staked_abi: snowbank/ssb.json
     staked_address: '0xe9eb40d52ce4744322204d4a29af63c30f0260a4'
-    staking_abi: SnowBank/staking.json
+    staking_abi: snowbank/sb_staking.json
     staking_address: '0x85784d5e2CCae89Bcb39EbF0ac6Cdc93d42d99AD'
-    token_abi: SnowBank/sb.json
+    token_abi: snowbank/sb.json
     token_address: '0x7d1232b90d3f809a54eeaeebc639c62df8a8942f'
-  - name: Maximizer
-    staked_abi: Maximizer/smaxi.json
+  - name: maximizer
+    staked_abi: maximizer/smaxi.json
     staked_address: '0xEcE4D1b3C2020A312Ec41A7271608326894076b4'
-    staking_abi: Maximizer/staking.json
+    staking_abi: maximizer/maxi_staking.json
     staking_address: '0x6d7AD602Ec2EFdF4B7d34A9A53f92F06d27b82B1'
-    token_abi: Maximizer/maxi.json
+    token_abi: maximizer/maxi.json
     token_address: '0x7C08413cbf02202a1c13643dB173f2694e0F73f0'
   - name: fortress
-    staked_abi: sfort.json
+    staked_abi: fortress/sfort.json
     staked_address: '0x6b8fb769d1957f2c29abc9d1beb95851cce775d8'
-    staking_abi: fort_staking.json
+    staking_abi: fortress/fort_staking.json
     staking_address: '0x4D8ba74820e2d6EaD2Ea154586CB7dfbA8A691aa'
-    token_abi: fort.json
+    token_abi: fortress/fort.json
     token_address: '0xf6d46849db378ae01d93732585bec2c4480d1fd5'
   - name: life-dao
-    staked_abi: slf.json
+    staked_abi: life-dao/slf.json
     staked_address: '0x769F19A9A449E523fC1F1f7B73051B3bC3C52738'
-    staking_abi: lf_staking.json
+    staking_abi: life-dao/lf_staking.json
     staking_address: '0x3C09c500829D09AfEA7575005fcAFBacFcde6902'
-    token_abi: lf.json
+    token_abi: life-dao/lf.json
     token_address: '0x5684a087C739A2e845F4AaAaBf4FBd261edc2bE8'
 - name: fantom
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/fantom/mainnet
   forks:
   - name: hector
-    staked_abi: shec.json
+    staked_abi: hector/shec.json
     staked_address: '0x75bdeF24285013387A47775828bEC90b91Ca9a5F'
-    staking_abi: hec_staking.json
+    staking_abi: hector/hec_staking.json
     staking_address: '0xD12930C8deeDafD788F437879cbA1Ad1E3908Cc5'
-    token_abi: hec.json
+    token_abi: hector/hec.json
     token_address: '0x5C4FDfc5233f935f20D2aDbA572F770c2E377Ab0'
 - name: polygon
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/polygon/mainnet/archive
   forks:
   - name: otterclam
-    staked_abi: sclam.json
+    staked_abi: otterclam/sclam.json
     staked_address: '0xAAc144Dc08cE39Ed92182dd85ded60E5000C9e67'
-    staking_abi: clam_staking.json
+    staking_abi: otterclam/clam_staking.json
     staking_address: '0xC8B0243F350AA5F8B979b228fAe522DAFC61221a'
-    token_abi: clam.json
+    token_abi: otterclam/clam.json
     token_address: '0xC250e9987A032ACAC293d838726C511E6E1C029d'
 - name: bsc
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/bsc/mainnet/archive
   forks:
   - name: jade
-    staked_abi: sjade.json
+    staked_abi: jade/sjade.json
     staked_address: '0x94CEA04C51E7d3EC0a4A97Ac0C3B3c9254c2aD41'
-    staking_abi: jade_staking.json
+    staking_abi: jade/jade_staking.json
     staking_address: '0x097d72e1D9bbb8d0263477f9b20bEBF66f243AF4'
-    token_abi: jade.json
+    token_abi: jade/jade.json
     token_address: '0x7ad7242A99F21aa543F9650A56D141C57e4F6081'
 - name: eth
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/eth/mainnet/archive
   forks:
   - name: lobi
-    staked_abi: slobi.json
+    staked_abi: lobi/slobi.json
     staked_address: '0x8Ab17e2cd4F894F8641A31f99F673a5762F53c8e'
-    staking_abi: lobi_staking.json
+    staking_abi: lobi/lobi_staking.json
     staking_address: '0x3818eff63418e0a0BA3980ABA5fF388b029b6d90'
-    token_abi: lobi.json
+    token_abi: lobi/lobi.json
     token_address: '0xdec41db0c33f3f6f3cb615449c311ba22d418a8d'
   - name: olympus
     staked_abi: olympus/sohm.json
     staked_address: '0x04f2694c8fcee23e8fd0dfea1d4f5bb8c352111f'
-    staking_abi: olympus/staking.json
+    staking_abi: olympus/ohm_staking.json
     staking_address: '0xfd31c7d00ca47653c6ce64af53c1571f9c36566a'
     token_abi: olympus/ohm.json
     token_address: '0x383518188c0c6d7730d91b2c03a03c837814a899'
@@ -89,11 +89,11 @@ chains:
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/arbitrum/mainnet
   forks:
   - name: umami
-    staked_abi: sumami.json
+    staked_abi: umami/sumami.json
     staked_address: '0xe6d557d416ff5640235119369c7e26AA18a906D7'
-    staking_abi: umami_staking.json
+    staking_abi: umami/umami_staking.json
     staking_address: '0xc9ecFeF2fac1E38b951B8C5f59294a8366Dfbd81'
-    token_abi: umami.json
+    token_abi: umami/umami.json
     token_address: '0x1622bF67e6e5747b81866fE0b85178a93C7F86e3'
 data_dir: ./data
 moralis_key: o2zp0MRmzIrQsvaGch0Tt4lRwlxiXJcbwHC6EeZaPmUmISmf2MYjhPfrS4v7a65F
