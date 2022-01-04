@@ -17,6 +17,8 @@ SNAPSHOT_COLUMNS = [
     "staking_ratio"
 ]
 
+wonderland_clones = ["wonderland", "umami", "fortress", "life-dao"]
+
 
 def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis_key):
     w3 = web3.Web3(web3.Web3.HTTPProvider(endpoint))
@@ -42,13 +44,18 @@ def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis
     epoch = staking_contract.functions.epoch().call()
 
     # time modified epoch code, this fixes it
-    if fork.get("name") == "wonderland":
+    if fork.get("name") in wonderland_clones:
         epoch = [epoch[2], epoch[0], epoch[3], epoch[1]]
 
     staking_reward = epoch[3] / math.pow(10, 9)
     staked_supply = staked_contract.functions.circulatingSupply().call() / math.pow(10, 9)
     staking_rebase = staking_reward / staked_supply
-    market_price = moralis.get_token_price(fork.get("token_address"), chain).get("usdPrice")
+    
+    try:
+        market_price = moralis.get_token_price(fork.get("token_address"), chain).get("usdPrice")
+    except AttributeError:
+        market_price = 0.0
+
     total_supply = token_contract.functions.totalSupply().call() / math.pow(10, 9)
 
     writer.writerow([
