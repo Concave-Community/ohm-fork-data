@@ -17,6 +17,13 @@ chains:
     staking_address: '0x4D8ba74820e2d6EaD2Ea154586CB7dfbA8A691aa'
     token_abi: fort.json
     token_address: '0xf6d46849db378ae01d93732585bec2c4480d1fd5'
+  - name: life-dao
+    staked_abi: slf.json
+    staked_address: '0x769F19A9A449E523fC1F1f7B73051B3bC3C52738'
+    staking_abi: lf_staking.json
+    staking_address: '0x3C09c500829D09AfEA7575005fcAFBacFcde6902'
+    token_abi: lf.json
+    token_address: '0x5684a087C739A2e845F4AaAaBf4FBd261edc2bE8'
 - name: fantom
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/fantom/mainnet
   forks:

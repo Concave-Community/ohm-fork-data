@@ -17,6 +17,8 @@ SNAPSHOT_COLUMNS = [
     "staking_ratio"
 ]
 
+wonderland_clones = ["wonderland", "umami", "fortress", "life-dao"]
+
 
 def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis_key):
     w3 = web3.Web3(web3.Web3.HTTPProvider(endpoint))
@@ -42,7 +44,7 @@ def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis
     epoch = staking_contract.functions.epoch().call()
 
     # time modified epoch code, this fixes it
-    if fork.get("name") in ["wonderland", "umami", "fortress"]:
+    if fork.get("name") in wonderland_clones:
         epoch = [epoch[2], epoch[0], epoch[3], epoch[1]]
 
     staking_reward = epoch[3] / math.pow(10, 9)
