@@ -54,10 +54,12 @@ chains:
 #    the staked_abi is copied from olympus's repo, abis/sohm.json
     staked_abi: olympus/sohm.json
     #    olympus's repo README sOHM address
+    #    you can check it https://etherscan.io/address/0x31932e6e45012476ba3a3a4953cba62aee77fbbe
     staked_address: '0x31932e6e45012476ba3a3a4953cba62aee77fbbe'
 #    this is is compiled the contract sol file: Staking.sol in remix.ethereum.org, then copy the abi to here.
     staking_abi: olympus/staking.json
     #    olympus's repo README OlympusStaking address
+    #    you can check it https://etherscan.io/address/0xfd31c7d00ca47653c6ce64af53c1571f9c36566a
     staking_address: '0xfd31c7d00ca47653c6ce64af53c1571f9c36566a'
 #    the staked_abi is copied from olympus's repo, abis/ohm.json
     token_abi: olympus/ohm.json
