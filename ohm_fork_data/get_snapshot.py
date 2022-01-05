@@ -24,6 +24,10 @@ wonderland_clones = [
     "life-dao",
     "snowbank",
     "maximizer",
+    "o2-dao",
+    "piggy-bank",
+    "r-u-generous",
+    "galaxygoggle"
 ]
 
 
