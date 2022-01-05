@@ -48,10 +48,11 @@ def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis
     staking_reward = epoch[3] / math.pow(10, 9)
     staked_supply = staked_contract.functions.circulatingSupply().call() / math.pow(10, 9)
     staking_rebase = staking_reward / staked_supply
-    
+
     try:
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={fork.get('name')}&vs_currencies=usd"
-        market_price = requests.get(url).json()[fork.get('name')]['usd']
+        json = requests.get(url).json()
+        market_price = json[fork.get('name')]['usd']
     except AttributeError:
         market_price = 0.0
 
@@ -83,6 +84,7 @@ with open(f"{data_dir}/snapshot.csv", "w") as csvfile:
     writer.writerow(SNAPSHOT_COLUMNS)
 
     for chain in config.get("chains"):
+        print("dealing with chain:" + str(chain))
         chain_name = chain.get("name")
         endpoint = chain.get("endpoint")
 
@@ -90,5 +92,7 @@ with open(f"{data_dir}/snapshot.csv", "w") as csvfile:
 
         for fork in chain.get("forks", None):
             fork_name = fork.get("name")
+
+            print("saving snapshot for fork=" + fork_name)
 
             save_snapshot_data(writer, fork, chain_name, endpoint, abi_dir, data_dir, moralis_key)
