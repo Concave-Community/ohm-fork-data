@@ -14,10 +14,17 @@ SNAPSHOT_COLUMNS = [
     "index",
     "staking_tvl",
     "market_cap",
-    "staking_ratio"
+    "staking_ratio",
 ]
 
-wonderland_clones = ["wonderland", "umami-finance", "fortressdao", "life-dao", "snowbank", "maximizer"]
+wonderland_clones = [
+    "wonderland",
+    "umami-finance",
+    "fortressdao",
+    "life-dao",
+    "snowbank",
+    "maximizer",
+]
 
 
 def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis_key):
@@ -46,30 +53,34 @@ def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis
         epoch = [epoch[2], epoch[0], epoch[3], epoch[1]]
 
     staking_reward = epoch[3] / math.pow(10, 9)
-    staked_supply = staked_contract.functions.circulatingSupply().call() / math.pow(10, 9)
+    staked_supply = staked_contract.functions.circulatingSupply().call() / math.pow(
+        10, 9
+    )
     staking_rebase = staking_reward / staked_supply
 
     try:
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={fork.get('name')}&vs_currencies=usd"
         json = requests.get(url).json()
-        market_price = json[fork.get('name')]['usd']
-    except AttributeError:
+        market_price = json[fork.get("name")]["usd"]
+    except KeyError:
         market_price = 0.0
 
     total_supply = token_contract.functions.totalSupply().call() / math.pow(10, 9)
 
-    writer.writerow([
-        fork.get('name'),
-        total_supply,
-        staked_supply,
-        market_price,
-        100 * (math.pow(1 + staking_rebase, 5 * 3) - 1),
-        100 * (math.pow(1 + staking_rebase, 365 * 3) - 1),
-        staking_contract.functions.index().call() / math.pow(10, 9),
-        staked_supply * market_price,
-        total_supply * market_price,
-        staked_supply / total_supply
-    ])
+    writer.writerow(
+        [
+            fork.get("name"),
+            total_supply,
+            staked_supply,
+            market_price,
+            100 * (math.pow(1 + staking_rebase, 5 * 3) - 1),
+            100 * (math.pow(1 + staking_rebase, 365 * 3) - 1),
+            staking_contract.functions.index().call() / math.pow(10, 9),
+            staked_supply * market_price,
+            total_supply * market_price,
+            staked_supply / total_supply,
+        ]
+    )
 
 
 with open("forks-snapshot.yaml", "r") as f:
@@ -95,4 +106,6 @@ with open(f"{data_dir}/snapshot.csv", "w") as csvfile:
 
             print("saving snapshot for fork=" + fork_name)
 
-            save_snapshot_data(writer, fork, chain_name, endpoint, abi_dir, data_dir, moralis_key)
+            save_snapshot_data(
+                writer, fork, chain_name, endpoint, abi_dir, data_dir, moralis_key
+            )

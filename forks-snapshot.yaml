@@ -45,34 +45,31 @@ chains:
     staking_address: '0x3C09c500829D09AfEA7575005fcAFBacFcde6902'
     token_abi: life-dao/lf.json
     token_address: '0x5684a087C739A2e845F4AaAaBf4FBd261edc2bE8'
-#  - name: o2-dao
-#    staked_abi: o2dao/sotow.json
-#    staked_address: '0xB28D86Ed75E049AE3E2c98e656c376CD397a1538'
-#    staking_abi: o2dao/otow_staking.json
-#    staking_address: '0x50971d6B5a3CCd79C516f914208C67C8104977dF'
-#    token_abi: o2dao/otow.json
-#    token_address: '0xAA2439DBAd718c9329a5893A51a708C015F76346'
-#    some thing wrong with o2-dao's staked token address, no abi found
-#    https://snowtrace.io/token/0xB28D86Ed75E049AE3E2c98e656c376CD397a1538#readContract
-#    I will check later.
+  - name: o2-dao
+    staked_abi: o2dao/sotow.json
+    staked_address: '0xB28D86Ed75E049AE3E2c98e656c376CD397a1538'
+    staking_abi: o2dao/otow_staking.json
+    staking_address: '0x50971d6B5a3CCd79C516f914208C67C8104977dF'
+    token_abi: o2dao/otow.json
+    token_address: '0xAA2439DBAd718c9329a5893A51a708C015F76346'
   - name: piggy-bank
     staked_abi: piggybank/spb.json
     staked_address: '0x03a808d4063Ac2aEB29545658ad0a3a1EDC55052'
-    staking_abi: piggybank/staking_spb.json
+    staking_abi: piggybank/pb_staking.json
     staking_address: '0xE4738791690AF507C8C7Bf5981ef541568C7C312'
     token_abi: piggybank/pb.json
     token_address: '0x0E75CDb914DdCcA683357dD94d26Caa39BC14B16'
   - name: r-u-generous
     staked_abi: rugenerous/srug.json
     staked_address: '0xF3caa368B06033a83a49317549b3c1b47E7D5F8F'
-    staking_abi: rugenerous/staking_srug.json
+    staking_abi: rugenerous/rug_staking.json
     staking_address: '0x47953c729a571ef331e92d537adc45985976c756'
     token_abi: rugenerous/rug.json
     token_address: '0xb8EF3a190b68175000B74B4160d325FD5024760e'
   - name: tempo-dao
     staked_abi: tempodao/stempo.json
     staked_address: '0x07394401c38b63d216Be5A518E78414701B2Cf0e'
-    staking_abi: tempodao/staking_stempo.json
+    staking_abi: tempodao/tempo_staking.json
     staking_address: '0x6323C227f71b30babdd6fe84093027079A955662'
     token_abi: tempodao/tempo.json
     token_address: '0x88a425b738682f58C0FF9fcF2CceB47a361ef4cF'
