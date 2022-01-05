@@ -117,6 +117,20 @@ chains:
     staking_address: '0x97209Cf7a6FccC388eEfF85b35D858756f31690d'
     token_abi: galaxygoggledao/gg.json
     token_address: '0xcAf23964Ca8db16D816eB314a56789F58fE0e10e'
+  - name: gryo-dao
+    staked_abi: gyro-dao/sgyrov2.json
+    staked_address: '0x4fbCde2c859e3c1AB2034474E4D97a6BEB220297'
+    staking_abi: gyro-dao/stakingv2.json
+    staking_address: '0x96a8FC2D80F464Bd734Ce8ED31Bd34a48176e5a7'
+    token_abi: gyro-dao/gyro.json
+    token_address: '0x1B239ABe619e74232c827FBE5E49a4C072bD869D'
+  - name: hunny-dao
+    staked_abi: hunny-dao/kiss.json
+    staked_address: '0x9F12CAd130D40d40541CaE8e3c295228769ad111'
+    staking_abi: hunny-dao/staking.json
+    staking_address: '0x79261d56C88aF27Cae29B107cb5872104D1Fe623'
+    token_abi: hunny-dao/love.json
+    token_address: '0x9505dbd77dacd1f6c89f101b98522d4b871d88c5'
 - name: eth
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/eth/mainnet/archive
   forks:
