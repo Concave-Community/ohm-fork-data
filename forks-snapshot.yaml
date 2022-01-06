@@ -10,6 +10,7 @@ chains:
     staking_address: '0x4456B87Af11e87E329AB7d7C7A246ed1aC2168B9'
     token_abi: wonderland/time.json
     token_address: '0xb54f16fb19478766a268f172c9480f8da1a7c9c3'
+    initial_index: 4.547419269
   - name: papa-dao
     staked_abi: papa-dao/spapa.json
     staked_address: '0xDd8E1245F8B285672111C9e4051504D654f4d43A'

@@ -79,7 +79,7 @@ def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis
             market_price,
             100 * (math.pow(1 + staking_rebase, 5 * 3) - 1),
             100 * (math.pow(1 + staking_rebase, 365 * 3) - 1),
-            staking_contract.functions.index().call() / math.pow(10, 9),
+            (staking_contract.functions.index().call() / math.pow(10, 9)) / fork.get("initial_index", 1),
             staked_supply * market_price,
             total_supply * market_price,
             staked_supply / total_supply,
