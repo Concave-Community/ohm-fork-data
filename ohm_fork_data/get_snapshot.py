@@ -30,9 +30,19 @@ wonderland_clones = [
     "galaxygoggle"
 ]
 
+# this is due to the different rebase interval for some forks
+# interval - hour
 DEFAULT_REBASE_INTERVAL = 8
 special_rebase_interval = {
-    "metaversepro": 1
+    "metaversepro": 1,
+    "xeus": 5
+}
+
+# actually I have no idea why the index divisor is different..
+DEFAULT_INDEX_DIVISOR = math.pow(10, 9)
+special_index_divisor = {
+    "metaversepro": math.pow(10, 1),
+    "xeus": math.pow(10, 4)
 }
 
 
@@ -78,6 +88,7 @@ def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis
 
     rebase_interval = special_rebase_interval.get(fork.get('name'), DEFAULT_REBASE_INTERVAL)
     rebase_time_per_day = 24 / rebase_interval
+    index = staking_contract.functions.index().call() / special_index_divisor.get(fork.get('name'), DEFAULT_INDEX_DIVISOR)
 
     writer.writerow(
         [
@@ -87,7 +98,7 @@ def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis
             market_price,
             100 * (math.pow(1 + staking_rebase, 5 * rebase_time_per_day) - 1),
             100 * (math.pow(1 + staking_rebase, 365 * rebase_time_per_day) - 1),
-            staking_contract.functions.index().call() / math.pow(10, 9),
+            index,
             staked_supply * market_price,
             total_supply * market_price,
             staked_supply / total_supply,

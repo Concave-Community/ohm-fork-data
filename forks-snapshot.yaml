@@ -103,6 +103,20 @@ chains:
 - name: bsc
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/bsc/mainnet/archive
   forks:
+  - name: xeus
+    staked_abi: xeus/sxeus.json
+    staked_address: '0x52eb4A4aF85bf7921813a12B7Cc9Ec02b5e94D6e'
+    staking_abi: xeus/staking.json
+    staking_address: '0x4669A93D251633C9983103529783eD1E4E36F20c'
+    token_abi: xeus/xeus.json
+    token_address: '0x4E141769366634D9c4e498257Fa7EC204d22b634'
+  - name: templardao
+    staked_abi: templar-dao/sword.json
+    staked_address: '0x8C9827Cd430d945aE5A5c3cfdc522f8D342334B9'
+    staking_abi: templar-dao/staking.json
+    staking_address: '0xa1f61Ca61fe8655d2a204B518f6De964145a9324'
+    token_abi: templar-dao/templar.json
+    token_address: '0x19e6BfC1A6e4B042Fb20531244D47E252445df01'
   - name: nemesis-dao
     staked_abi: nemesis-dao/snms.json
     staked_address: '0xB91bfDb8b41120586CcB391f5cEE0dAe4482334f'
