@@ -103,6 +103,27 @@ chains:
 - name: bsc
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/bsc/mainnet/archive
   forks:
+  - name: nemesis-dao
+    staked_abi: nemesis-dao/snms.json
+    staked_address: '0xB91bfDb8b41120586CcB391f5cEE0dAe4482334f'
+    staking_abi: nemesis-dao/staking.json
+    staking_address: '0xfD562672bf1dA0F80d43f26bfc4ca19121Ba661B'
+    token_abi: nemesis-dao/nms.json
+    token_address: '0x8AC9DC3358A2dB19fDd57f433ff45d1fc357aFb3'
+  - name: metaversepro
+    staked_abi: metaversepro/smeta.json
+    staked_address: '0x09f33EC33052Cd253Db79fFA883E9c12Eb578309'
+    staking_abi: metaversepro/staking.json
+    staking_address: '0xb91db0c2551aae4784119ce4c33234c9e3c9af71'
+    token_abi: metaversepro/meta.json
+    token_address: '0x0a2046C7fAa5a5F2b38C0599dEB4310AB781CC83'
+  - name: pi-dao
+    staked_abi: pi-dao/spid.json
+    staked_address: '0xF6E9FEdef7282C2Df6e805C22ce846eca84469e1'
+    staking_abi: pi-dao/staking.json
+    staking_address: '0x22d1704817D42bdE262d778bFE097e287151371D'
+    token_abi: pi-dao/pid.json
+    token_address: '0x1215ed20aa507578ca352e195016f289e7a17f3a'
   - name: jade-protocol
     staked_abi: jade-protocol/sjade.json
     staked_address: '0x94CEA04C51E7d3EC0a4A97Ac0C3B3c9254c2aD41'

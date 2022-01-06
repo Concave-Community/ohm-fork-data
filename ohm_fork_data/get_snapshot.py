@@ -30,6 +30,11 @@ wonderland_clones = [
     "galaxygoggle"
 ]
 
+DEFAULT_REBASE_INTERVAL = 8
+special_rebase_interval = {
+    "metaversepro": 1
+}
+
 
 def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis_key):
     w3 = web3.Web3(web3.Web3.HTTPProvider(endpoint))
@@ -71,14 +76,17 @@ def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis
 
     total_supply = token_contract.functions.totalSupply().call() / math.pow(10, 9)
 
+    rebase_interval = special_rebase_interval.get(fork.get('name'), DEFAULT_REBASE_INTERVAL)
+    rebase_time_per_day = 24 / rebase_interval
+
     writer.writerow(
         [
             fork.get("name"),
             total_supply,
             staked_supply,
             market_price,
-            100 * (math.pow(1 + staking_rebase, 5 * 3) - 1),
-            100 * (math.pow(1 + staking_rebase, 365 * 3) - 1),
+            100 * (math.pow(1 + staking_rebase, 5 * rebase_time_per_day) - 1),
+            100 * (math.pow(1 + staking_rebase, 365 * rebase_time_per_day) - 1),
             staking_contract.functions.index().call() / math.pow(10, 9),
             staked_supply * market_price,
             total_supply * market_price,
