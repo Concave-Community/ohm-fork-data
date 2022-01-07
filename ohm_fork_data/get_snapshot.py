@@ -30,6 +30,21 @@ wonderland_clones = [
     "galaxygoggle"
 ]
 
+# this is due to the different rebase interval for some forks
+# interval - hour
+DEFAULT_REBASE_INTERVAL = 8
+special_rebase_interval = {
+    "metaversepro": 1,
+    "xeus": 5
+}
+
+# actually I have no idea why the index divisor is different..
+DEFAULT_INDEX_DIVISOR = math.pow(10, 9)
+special_index_divisor = {
+    "metaversepro": math.pow(10, 1),
+    "xeus": math.pow(10, 4)
+}
+
 
 def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis_key):
     w3 = web3.Web3(web3.Web3.HTTPProvider(endpoint))
@@ -71,21 +86,41 @@ def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis
 
     total_supply = token_contract.functions.totalSupply().call() / math.pow(10, 9)
 
+    staking_apy = calculate_staking_apy(fork, staking_rebase)
+    five_day_rate = calculate_five_days_rate(fork, staking_rebase)
+    index = get_index_for_contract(fork, staking_contract)
+
+
+
     writer.writerow(
         [
             fork.get("name"),
             total_supply,
             staked_supply,
             market_price,
-            100 * (math.pow(1 + staking_rebase, 5 * 3) - 1),
-            100 * (math.pow(1 + staking_rebase, 365 * 3) - 1),
-            (staking_contract.functions.index().call() / math.pow(10, 9)) / fork.get("initial_index", 1),
+            five_day_rate,
+            staking_apy,
+            index,
             staked_supply * market_price,
             total_supply * market_price,
             staked_supply / total_supply,
         ]
     )
 
+def calculate_staking_apy(fork, staking_rebase):
+    rebase_interval = special_rebase_interval.get(fork.get('name'), DEFAULT_REBASE_INTERVAL)
+    rebase_time_per_day = 24 / rebase_interval
+    return 100 * (math.pow(1 + staking_rebase, 365 * rebase_time_per_day) - 1)
+
+def calculate_five_days_rate(fork, staking_rebase):
+    rebase_interval = special_rebase_interval.get(fork.get('name'), DEFAULT_REBASE_INTERVAL)
+    rebase_time_per_day = 24 / rebase_interval
+    return 100 * (math.pow(1 + staking_rebase, 5 * rebase_time_per_day) - 1)
+
+def get_index_for_contract(fork, staking_contract):
+    index_from_contract = staking_contract.functions.index().call()
+    index = index_from_contract / special_index_divisor.get(fork.get('name'), DEFAULT_INDEX_DIVISOR) / fork.get("initial_index", 1)
+    return index
 
 with open("forks-snapshot.yaml", "r") as f:
     config = yaml.load(f, Loader=yaml.SafeLoader)
