@@ -88,8 +88,9 @@ def save_snapshot_data(writer, fork, chain, endpoint, abi_dir, data_dir, moralis
 
     staking_apy = calculate_staking_apy(fork, staking_rebase)
     five_day_rate = calculate_five_days_rate(fork, staking_rebase)
-
     index = get_index_for_contract(fork, staking_contract)
+
+
 
     writer.writerow(
         [
@@ -118,9 +119,8 @@ def calculate_five_days_rate(fork, staking_rebase):
 
 def get_index_for_contract(fork, staking_contract):
     index_from_contract = staking_contract.functions.index().call()
-    index = index_from_contract / special_index_divisor.get(fork.get('name'), DEFAULT_INDEX_DIVISOR)
+    index = index_from_contract / special_index_divisor.get(fork.get('name'), DEFAULT_INDEX_DIVISOR) / fork.get("initial_index", 1)
     return index
-
 
 with open("forks-snapshot.yaml", "r") as f:
     config = yaml.load(f, Loader=yaml.SafeLoader)

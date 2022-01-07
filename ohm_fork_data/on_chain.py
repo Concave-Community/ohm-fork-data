@@ -101,8 +101,8 @@ def save_staking_data(
                     block_identifier=block
                 )
                 / math.pow(10, 9),
-                staking_contract.functions.index().call(block_identifier=block)
-                / math.pow(10, 9),
+                (staking_contract.functions.index().call(block_identifier=block)
+                / math.pow(10, 9)) / fork.get('initial_index', 1),
                 market_price,
             ]
             + epoch[:-1]
