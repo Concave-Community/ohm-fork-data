@@ -1,0 +1,27 @@
+name: cron-data-fetch
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+
+jobs:
+  get-data:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: build the image
+        run: docker-compose build
+
+      - name: get snapshot data
+        run: docker-compose up snapshot-data
+
+      - name: get historic data
+        run: docker-compose up historic-data
+
+      - name: Update data back in repo
+        uses: test-room-7/action-update-file@v1
+        with:
+          # Include all files from the `data` directory
+          file-path: data/**/*
+          commit-msg: Auto commit for cron job
+          github-token: ${{ secrets.GIT_COMMIT_TOKEN }}
