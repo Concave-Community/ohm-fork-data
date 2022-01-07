@@ -3,22 +3,22 @@ chains:
 - archive: https://api.avax.network/ext/bc/C/rpc
   endpoint: https://api.avax.network/ext/bc/C/rpc
   forks:
-  - bond_abi: time_bond.json
+  - bond_abi: wonderland/time_bond.json
     bonds:
     - address: '0xE02B1AA2c4BE73093BE79d763fdFFC0E3cf67318'
       name: mim
     - address: '0xA184AE1A71EcAD20E822cB965b99c287590c4FFe'
       name: avax
-    end_block: 9074451
+    end_block: 9230094
     initial_index: 4.547419269
     initial_supply: 30000
     name: wonderland
-    staked_abi: memo.json
+    staked_abi: wonderland/memo.json
     staked_address: '0x136acd46c134e8269052c62a67042d6bdedde3c9'
-    staking_abi: time_staking.json
+    staking_abi: wonderland/time_staking.json
     staking_address: '0x4456B87Af11e87E329AB7d7C7A246ed1aC2168B9'
     start_block: 3775251
-    token_abi: time.json
+    token_abi: wonderland/time.json
     token_address: '0xb54f16fb19478766a268f172c9480f8da1a7c9c3'
     treasury_addresses:
     - address: '0x355D72Fb52AD4591B2066E43e89A7A38CF5cb341'

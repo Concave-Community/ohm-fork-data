@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  snapshot-data:
+    build: .
+    volumes:
+      - ./:/app
+    command: "python ohm_fork_data/get_snapshot.py"
+
+  historic-data:
+    build: .
+    volumes:
+      - ./:/app
+    command: "python ohm_fork_data/get_data.py"

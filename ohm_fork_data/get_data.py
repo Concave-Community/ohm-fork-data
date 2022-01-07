@@ -25,7 +25,7 @@ for chain in config.get("chains"):
 
         # single get
         if end_block != start_block:
-            end_block == current_block
+            end_block = current_block
             endpoint = chain.get("endpoint")
 
         while end_block <= current_block:
