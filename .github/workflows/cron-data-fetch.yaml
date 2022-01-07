@@ -1,5 +1,7 @@
 name: cron-data-fetch
-on: push
+on:
+  schedule:
+    - cron: '0 */4 * * *'
 
 jobs:
   historic-data:
