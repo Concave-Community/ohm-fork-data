@@ -1,0 +1,14 @@
+name: cron-data-fetch
+on: push
+
+jobs:
+  historic-data:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: build the image
+        run: docker-compose build
+
+      - name: get historic data
+        run: docker-compose up historic-data
