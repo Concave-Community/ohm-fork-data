@@ -177,6 +177,21 @@ chains:
     staking_address: '0x3818eff63418e0a0BA3980ABA5fF388b029b6d90'
     token_abi: lobis/lobi.json
     token_address: '0xdec41db0c33f3f6f3cb615449c311ba22d418a8d'
+  - name: squid
+    staked_abi: squid/ssquid.json
+    staked_address: '0x9d49BfC921F36448234b0eFa67B5f91b3C691515'
+    staking_abi: squid/staking.json
+    staking_address: '0x5895B13Da9BEB11e36136817cdcf3c4fcb16aaeA'
+    token_abi: squid/squid.json
+    token_address: '0x21ad647b8F4Fe333212e735bfC1F36B4941E6Ad2'
+# cerberusdao rug?
+  - name: cerberusdao
+    staked_abi: cerberusdao/s3dog.json
+    staked_address: '0xA552f061d8962BE4c1f6BC6B0403Ca620F569330'
+    staking_abi: cerberusdao/staking.json
+    staking_address: '0x95deaF8dd30380acd6CC5E4E90e5EEf94d258854'
+    token_abi: cerberusdao/3dog.json
+    token_address: '0x8a14897eA5F668f36671678593fAe44Ae23B39FB'
   - name: olympus
     staked_abi: olympus/sohm.json
     staked_address: '0x04906695D6D12CF5459975d7C3C03356E4Ccd460'
