@@ -1,4 +1,4 @@
-abi_dir: ./abis
+abi_dir: ./abis/forks
 chains:
 - name: avalanche
   endpoint: https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/avalanche/mainnet

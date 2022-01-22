@@ -14,13 +14,19 @@ poetry install
 poetry shell
 ```
 
-### Get snapshot data
+### Get snapshot data for forks
 Assumes you are still in poetry shell from above.
-
 
 ```sh
 python ohm_fork_data/get_snapshot.py
 ```
+
+### Get Farm Data 
+Now only support curve - 3pool, but more is on the way
+```shell
+python stable_farm_data/get_curve_snapshot.py
+```
+
 
 ### Get historical data
 Assumes you are still in poetry shell from above.
