@@ -11,13 +11,31 @@ coingeck_token_code_mapping = {
     "UST": "terrausd",
     "aDAI": "aave-dai",
     "aUSDC": "aave-usdc",
+    "aSUSD": "aave-susd",
     "USDC": "usd-coin",
     "USDT": "tether",
+    "EURS": "stasis-eurs",
+    "sEUR": "seur",
+    "SUSD": "susd",
+    "wBTC": "wrapped-bitcoin",
+    "hBTC": "huobi-btc",
+    "LINK": "chainlink",
+    "sLINK": "slink",
+    "LINKUSD": "linkusd",
+    "MUSD": "mstable-usd",
+    "USDP": "neutrino-usd",
+    "USDK": "usdk",
+    "stETH": "staked-ether",
+    "ETH": "ethereum",
+    "sETH": "seth",
+    "RSV": "reserve",
 }
 
 
 def fetch_real_price_in_usd(token_list):
     try:
+        if len(token_list) == 0:
+            pass
         mapping_tokens = []
         for token in token_list:
             mapping_token = coingeck_token_code_mapping.get(token)
@@ -25,6 +43,7 @@ def fetch_real_price_in_usd(token_list):
                 mapping_tokens.append(mapping_token)
         token_param = ",".join(mapping_tokens)
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={token_param}&vs_currencies=usd"
+        print("target url: " + url)
         fetched_result = requests.get(url).json()
         # market_price = json[fork.get("name")]["usd"]
         real_market_price = {}
