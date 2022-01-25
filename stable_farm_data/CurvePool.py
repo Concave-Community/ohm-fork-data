@@ -12,6 +12,4 @@ class CurvePool:
         self.monthly_apy = monthly_apy
         self.total_apy = total_apy
         self.volume = volume
-        self.snapshot_timestamp = str(datetime.today())
-
-
+        self.snapshot_timestamp = datetime.today().strftime('%Y-%m-%d')

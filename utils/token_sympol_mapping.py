@@ -5,6 +5,12 @@ from utils.collection_utils import get_dict_key_by_value
 coingeck_token_code_mapping = {
     "3CRV": "lp-3pool-curve",
     "DAI": "dai",
+    "cDAI": "compound-dai",
+    "yDAI": "yfdai-finance",
+    "yUSDC": "usd-coin",
+    "yTUSD": "true-usd",
+    "yUSDT": "tether",
+    "cUSDC": "compound-usd-coin",
     "GUSD": "gemini-dollar",
     "DUSD": "defidollar",
     "bBTC": "binance-wrapped-btc",
@@ -35,13 +41,15 @@ coingeck_token_code_mapping = {
 def fetch_real_price_in_usd(token_list):
     try:
         if len(token_list) == 0:
-            pass
+            return {}
         mapping_tokens = []
         for token in token_list:
             mapping_token = coingeck_token_code_mapping.get(token)
             if mapping_token is not None:
                 mapping_tokens.append(mapping_token)
         token_param = ",".join(mapping_tokens)
+        if len(mapping_tokens) == 0:
+            return {}
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={token_param}&vs_currencies=usd"
         print("target url: " + url)
         fetched_result = requests.get(url).json()
