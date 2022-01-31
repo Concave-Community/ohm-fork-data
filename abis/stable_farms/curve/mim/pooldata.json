@@ -1,0 +1,21 @@
+{
+    "base_pool": "3pool",
+    "pool_types": ["meta"],
+    "swap_address": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+    "lp_token_address": "0x6D65b498cb23deAba52db31c93Da9BFFb340FB8F",
+    "gauge_addresses": ["0xd8b712d29381748dB89c36BCa0138d7c75866ddF"],
+    "coins": [
+        {
+            "name": "MIM",
+            "decimals": 18,
+            "tethered": false,
+            "underlying_address": "0x99d8a9c45b2eca8864373a26d1459e3dff1e17f3"
+        },
+        {
+            "name": "3CRV",
+            "decimals": 18,
+            "base_pool_token": true,
+            "underlying_address": "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        }
+    ]
+}
