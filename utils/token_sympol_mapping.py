@@ -35,6 +35,14 @@ coingeck_token_code_mapping = {
     "ETH": "ethereum",
     "sETH": "seth",
     "RSV": "reserve",
+    "FRAX": "frax",
+    "LUSD": "liquity-usd",
+    "ycDAI": "dai",
+    "ycUSDC": "usd-coin",
+    "ycUSDT": "tether",
+    "PAX": "paxos-standard",
+    "TUSD": "true-usd",
+    "HUSD": "husd",
 }
 
 

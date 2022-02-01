@@ -74,6 +74,8 @@ with open(f"{data_dir}", "w") as csvfile:
         tvl = 0
         tvl_dict = fetch_balance_from_contract(pool_name=pool.pool_name,
                                                endpoint=endpoint)
+        if len(tvl_dict) == 0:
+            continue
         token_names = list(tvl_dict.keys())
         real_price_map = fetch_real_price_in_usd(token_names)
         token1_name = get_with_default(token_names, 0, "")
