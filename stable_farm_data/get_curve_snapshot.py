@@ -3,7 +3,8 @@ import csv
 import requests
 import yaml
 
-from stable_farm_data.CurvePool import CurvePool
+from stable_farm_data.Pool import Pool
+from stable_farm_data.farm_api_adapter import fetch_curve_apy_volume
 from stable_farm_data.fetch_curve_pool_data_from_contract import fetch_balance_from_contract
 from utils.collection_utils import get_with_default
 from utils.token_sympol_mapping import fetch_real_price_in_usd
@@ -34,33 +35,16 @@ SNAPSHOT_COLUMNS = [
 
 data_dir = "../data/stable_farms"
 
-CURVE_APY_VOLUMN_URL = "https://stats.curve.fi/raw-stats/apys.json"
 # CURVE_FACTORY_V2_POOL = "https://api.curve.fi/api/getFactoryV2Pools"
 # CURVE_FACTORY_APY = "https://api.curve.fi/api/getFactoryAPYs?version=2"
 CURVE_POOL_TVL = "https://api.curve.fi/api/getTVLCrypto"
 
-apy_volumn = requests.get(CURVE_APY_VOLUMN_URL).json()
 # factory_v2_pool = requests.get(CURVE_FACTORY_V2_POOL).json()
 # factory_apy = requests.get(CURVE_FACTORY_APy).json()
 pool_tvl = requests.get(CURVE_POOL_TVL).json()
 
-daily_apy_dict = apy_volumn['apy']['day']
-weekly_apy_dict = apy_volumn['apy']['week']
-monthly_apy_dict = apy_volumn['apy']['month']
-total_apy_dict = apy_volumn['apy']['total']
-volume_dict = apy_volumn['volume']
 
-pools = []
-
-for key in daily_apy_dict:
-    daily_apy = daily_apy_dict[key]
-    weekly_apy = weekly_apy_dict[key]
-    monthly_apy = monthly_apy_dict[key]
-    total_apy = total_apy_dict[key]
-    volume = volume_dict.get(key, 0)
-    curve_pool = CurvePool(name=key, daily_apy=daily_apy, weekly_apy=weekly_apy,
-                           monthly_apy=monthly_apy, total_apy=total_apy, volume=volume)
-    pools.append(curve_pool)
+pools = fetch_curve_apy_volume()
 
 with open("../stable-farms.yaml", "r") as f:
     config = yaml.load(f, Loader=yaml.SafeLoader)
