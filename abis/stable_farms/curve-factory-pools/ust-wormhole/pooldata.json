@@ -1,0 +1,18 @@
+{
+  "swap_address": "0xCEAF7747579696A2F0bb206a14210e3c9e6fB269",
+  "lp_token_address": "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490",
+  "coins": [
+    {
+      "name": "UST",
+      "decimals": 18,
+      "tethered": false,
+      "underlying_address": "0xa47c8bf37f92aBed4A126BDA807A7b7498661acD"
+    },
+    {
+      "name": "3CRV",
+      "decimals": 18,
+      "base_pool_token": true,
+      "underlying_address": "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+    }
+  ]
+}

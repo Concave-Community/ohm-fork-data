@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 
 import requests
 import yaml
@@ -43,12 +44,12 @@ CURVE_POOL_TVL = "https://api.curve.fi/api/getTVLCrypto"
 # factory_apy = requests.get(CURVE_FACTORY_APy).json()
 pool_tvl = requests.get(CURVE_POOL_TVL).json()
 
-
 pools = fetch_curve_apy_volume()
+today_date = datetime.today().strftime('%Y-%m-%d')
 
 with open("../stable-farms.yaml", "r") as f:
     config = yaml.load(f, Loader=yaml.SafeLoader)
-data_dir = data_dir + '/curve_pools.csv'
+data_dir = data_dir + '/curve_pools_' + today_date + '.csv'
 with open(f"{data_dir}", "w") as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(SNAPSHOT_COLUMNS)
