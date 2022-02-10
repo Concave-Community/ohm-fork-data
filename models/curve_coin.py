@@ -1,3 +1,7 @@
+from stable_farm_data.annotation import auto_str
+
+
+@auto_str
 class CurveCoin(object):
     address: str
     usdPrice: float

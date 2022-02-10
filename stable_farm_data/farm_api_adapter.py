@@ -3,7 +3,7 @@ import json
 import requests
 
 from models.curve_factory_meta_pool import CurveFactoryMetaPool
-from stable_farm_data.Pool import Pool
+from models.Pool import Pool
 
 
 def fetch_curve_apy_volume():

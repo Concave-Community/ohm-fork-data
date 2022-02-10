@@ -24,7 +24,7 @@ python ohm_fork_data/get_snapshot.py
 ### Get Farm Data 
 Now only support curve - 3pool, but more is on the way
 ```shell
-python stable_farm_data/get_curve_snapshot.py
+python stable_farm_data/get_curve_official_pool_snapshot.py
 ```
 
 

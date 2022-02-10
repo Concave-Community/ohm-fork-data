@@ -12,11 +12,14 @@ jobs:
       - name: build the image
         run: docker-compose build
 
-      - name: get snapshot data
-        run: docker-compose up snapshot-data
-
-      - name: get historic data
-        run: docker-compose up historic-data
+#      - name: get snapshot data
+#        run: docker-compose up snapshot-data
+#
+#      - name: get historic data
+#        run: docker-compose up historic-data
+      -
+      - name: get stable farm data
+        run: docker-compose up stable-farm-data
 
       - name: Update data back in repo
         uses: test-room-7/action-update-file@v1

@@ -13,4 +13,5 @@ RUN poetry install --no-dev
 
 COPY . /app
 
-CMD python ohm_fork_data/get_snapshot.py
+CMD python stable_farm_data/get_curve_official_pool_snapshot.py
+CMD python stable_farm_data/get_curve_factory_snapshot.py

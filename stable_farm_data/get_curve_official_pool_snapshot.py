@@ -4,7 +4,6 @@ from datetime import datetime
 import requests
 import yaml
 
-from stable_farm_data.Pool import Pool
 from stable_farm_data.farm_api_adapter import fetch_curve_apy_volume
 from stable_farm_data.fetch_curve_pool_data_from_contract import fetch_balance_from_contract
 from utils.collection_utils import get_with_default
@@ -19,9 +18,6 @@ SNAPSHOT_COLUMNS = [
     "date",
     "pool_name",
     "daily_apy",
-    "weekly_apy",
-    "monthly_apy",
-    "total_apy",
     "volume_in_usd",
     "token1",
     "token1_tvl_in_usd",
@@ -35,14 +31,6 @@ SNAPSHOT_COLUMNS = [
 ]
 
 data_dir = "../data/stable_farms"
-
-# CURVE_FACTORY_V2_POOL = "https://api.curve.fi/api/getFactoryV2Pools"
-# CURVE_FACTORY_APY = "https://api.curve.fi/api/getFactoryAPYs?version=2"
-CURVE_POOL_TVL = "https://api.curve.fi/api/getTVLCrypto"
-
-# factory_v2_pool = requests.get(CURVE_FACTORY_V2_POOL).json()
-# factory_apy = requests.get(CURVE_FACTORY_APy).json()
-pool_tvl = requests.get(CURVE_POOL_TVL).json()
 
 pools = fetch_curve_apy_volume()
 today_date = datetime.today().strftime('%Y-%m-%d')
@@ -77,9 +65,6 @@ with open(f"{data_dir}", "w") as csvfile:
                 pool.snapshot_timestamp,
                 pool.pool_name,
                 pool.daily_apy,
-                pool.weekly_apy,
-                pool.monthly_apy,
-                pool.total_apy,
                 pool.volume,
                 token1_name,
                 token1_tvl,

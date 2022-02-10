@@ -1,8 +1,10 @@
 from json import JSONEncoder
 
 from models.curve_coin import CurveCoin
+from stable_farm_data.annotation import auto_str
 
 
+@auto_str
 class CurveFactoryMetaPool(object):
     id: str
     address: str

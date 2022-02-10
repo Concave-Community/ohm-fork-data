@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  snapshot-data:
+  fork-snapshot-data:
     build: .
     volumes:
       - ./:/app
@@ -11,3 +11,9 @@ services:
     volumes:
       - ./:/app
     command: "python ohm_fork_data/get_data.py"
+
+  stable-farm-data:
+    build: .
+    volumes:
+      - ./:/app
+    command: "python stable_farm_data/get_curve_official_pool_snapshot.py"
