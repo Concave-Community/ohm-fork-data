@@ -31,18 +31,14 @@ SNAPSHOT_COLUMNS = [
 ]
 
 data_dir = "../data/stable_farms"
-
 pools = fetch_curve_apy_volume()
 today_date = datetime.today().strftime('%Y-%m-%d')
+endpoint = 'https://speedy-nodes-nyc.moralis.io/6e55bded8312d1f70c28c678/eth/mainnet/archive'
 
-with open("../stable-farms.yaml", "r") as f:
-    config = yaml.load(f, Loader=yaml.SafeLoader)
 data_dir = data_dir + '/curve_pools_' + today_date + '.csv'
 with open(f"{data_dir}", "w") as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(SNAPSHOT_COLUMNS)
-    endpoint = config.get('endpoint')
-    farms = config.get('farms')
     for pool in pools:
         tvl = 0
         tvl_dict = fetch_balance_from_contract(pool_name=pool.pool_name,
